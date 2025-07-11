@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwilline <mwilline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maximo <maximo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 16:06:53 by mwilline          #+#    #+#             */
-/*   Updated: 2025/07/08 19:36:44 by mwilline         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:42:53 by maximo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(void)
 {
 	char	*input;
+	t_data	data;
 
 	set_signal();
 	while(1)
@@ -24,6 +25,7 @@ int main(void)
 			ft_error("exit");
 		if(*input)
 			add_history(input);
+		split_arg(input, &data);
 		printf("comando recibido: %s\n", input);
 		free(input);
 	}
