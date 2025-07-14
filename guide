@@ -188,6 +188,3 @@ Día 41–45	Señales en hijos y edge cases
 Día 46–50	Testing, limpieza, norminette, leaks
 " 
 
-pasos realizados:
-1-crear el bucle principal que reciba inputs y lo guarde en un historial
-2-Splitear los input y tokenizarlos
