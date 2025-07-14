@@ -186,3 +186,8 @@ Día 31–35	Built-ins (cd, pwd, export, etc.)
 Día 36–40	Heredoc y control de errores
 Día 41–45	Señales en hijos y edge cases
 Día 46–50	Testing, limpieza, norminette, leaks
+" 
+
+pasos realizados:
+1-crear el bucle principal que reciba inputs y lo guarde en un historial
+2-Splitear los input y tokenizarlos

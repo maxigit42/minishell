@@ -6,7 +6,7 @@
 /*   By: maximo <maximo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:15:44 by mwilline          #+#    #+#             */
-/*   Updated: 2025/07/11 20:39:14 by maximo           ###   ########.fr       */
+/*   Updated: 2025/07/14 14:17:14 by maximo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_token     *ft_token_new(char *str)
     
     new = malloc(sizeof(t_token));
     if(!new)
-    ft_error_malloc(); //acabar este funcion
+        return ;
     new->str = ft_strdup(str);
     new->type = 0;
     new->infile = 0;
@@ -79,9 +79,9 @@ void    split_arg(char *args, t_data *data)
     while(args[i])
     {
         new = ft_token_new(token_array[i]);
-        get_tokens_type(token_array[i], new);
+        get_token_type(token_array[i], new);
         put_lstback(&(data->token), new);
         i++;
     }
-    free_split(token_array); //crear funcion
+    free_split(token_array);
 }
