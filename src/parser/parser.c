@@ -6,12 +6,11 @@
 /*   By: maximo <maximo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:15:44 by mwilline          #+#    #+#             */
-/*   Updated: 2025/07/14 14:17:14 by maximo           ###   ########.fr       */
+/*   Updated: 2025/07/15 23:13:25 by maximo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
 
 t_token     *ft_token_new(char *str)
 {
@@ -19,7 +18,7 @@ t_token     *ft_token_new(char *str)
     
     new = malloc(sizeof(t_token));
     if(!new)
-        return ;
+        ft_error(MALLOC_ERR, 0);
     new->str = ft_strdup(str);
     new->type = 0;
     new->infile = 0;
@@ -76,10 +75,10 @@ void    split_arg(char *args, t_data *data)
     token_array = ft_split(args, ' ');
     if (!token_array)
         return ;
-    while(args[i])
+    while(token_array[i])
     {
         new = ft_token_new(token_array[i]);
-        get_token_type(token_array[i], new);
+        get_token_type(token_array, new);
         put_lstback(&(data->token), new);
         i++;
     }

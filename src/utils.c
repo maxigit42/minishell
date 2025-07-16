@@ -6,7 +6,7 @@
 /*   By: maximo <maximo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:46:19 by mwilline          #+#    #+#             */
-/*   Updated: 2025/07/14 19:08:06 by maximo           ###   ########.fr       */
+/*   Updated: 2025/07/15 23:15:48 by maximo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,31 @@ void	free_split(char **str)
 		i++;
 	}
 	free(str);
+}
+
+void	free_list(t_token *head)
+{
+	t_token	*temp;
+
+	while(head)
+	{
+		temp = head->next;
+		free(head->str);
+		free(head);
+		head = temp;
+	}
+}
+
+void	ft_free(char *str, char **envp)
+{
+	int i;
+
+	i = 0;
+	while(envp[i])
+	{
+		free(envp[i]);
+		i++;
+	}
+	free(envp);
+	printf("%s\n", str);
 }
